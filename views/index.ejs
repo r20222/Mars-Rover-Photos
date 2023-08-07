@@ -1,0 +1,19 @@
+<%- include('./partials/head.ejs') %>
+
+
+<p>Welcome to my NASA Rover Photos website. I made this website to practice with data from 
+    the NASA API and to learn more about Mars and the Rovers Curiosity, Opportunity and Spirit. Click
+    on one of the Rovers below to learn more about them and see their photos.</p>
+
+
+<a href="/rover.ejs?rover=curiosity" title="Curiosity" class="index-rovers curiosity">
+    <span><%= curiosity.photo_manifest.name %></span>
+</a>
+<a href="/rover.ejs?rover=opportunity" title="Opportunity" class="index-rovers opportunity">
+    <span><%= opportunity.photo_manifest.name %></span>
+</a>
+<a href="/rover.ejs?rover=spirit" title="Spirit" class="index-rovers spirit">
+    <span><%= spirit.photo_manifest.name %></span>
+</a>
+
+<%- include('./partials/foot.ejs') %>
