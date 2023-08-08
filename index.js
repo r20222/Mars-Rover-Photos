@@ -8,7 +8,7 @@ const app = express()
 import 'dotenv/config'
 
 // om fetch te gebruiken voor online zetten, nodig om op render te zetten?
-// import fetch from 'node-fetch';
+import fetch from 'node-fetch';
 
 
 // Maak routes met express naar de views & public 
@@ -59,10 +59,10 @@ app.get('/rover.ejs', (request, response) => {
       const maxSol = roverData.photo_manifest.max_sol;
 
       if (sol) {
-        solUrl = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?sol=${sol}&api_key=${process.env.marsRoverKey}`;
+        solUrl = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?sol=${sol}&page=1&api_key=${process.env.marsRoverKey}`;
       } else {
         // Gebruik maxSol als standaardwaarde
-        solUrl = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?sol=${maxSol}&api_key=${process.env.marsRoverKey}`;
+        solUrl = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?sol=${maxSol}&page=1&api_key=${process.env.marsRoverKey}`;
       }
 
       return fetchJson(solUrl)
