@@ -21,7 +21,7 @@ header{
     font-weight: bold;
 }
 .index-rovers{
-    height:10rem;
+    height:13rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,7 +29,7 @@ header{
     text-decoration: none;
 }
 .index-rovers span{
-    color: white;
+    color: whitesmoke;
     background-color: rgba(0, 0, 0, .6);
     font-size: 2rem;
     padding: .5rem 1rem;
@@ -37,20 +37,33 @@ header{
 .curiosity{
     background:url('/curiosity.webp') no-repeat center center;
     background-size: cover;
-}
-.opportunity, .spirit{
-    background:url('/opportunity-spirit.webp') no-repeat center top -2rem;
-    background-size: cover;
-}
 
+
+}
+.opportunity{
+    background:url('/opportunity.webp') no-repeat center top;
+    background-size: cover;
+
+}
+.spirit{
+    background:url('/spirit.webp') no-repeat center top;
+    background-size: cover;
+
+
+}
 
 /* Rovers page */
 .rover-name::first-letter {
     text-transform: uppercase;
-  }
+}
+.rover-name{
+    margin-bottom:-.5rem;
+}
 .rover-image-box{
     width: auto;
-    height: 10rem;
+    height: 14rem;
+    margin-top:1rem;
+    overflow: hidden;
 }
 .information-rover-list{
     list-style: none;
@@ -67,8 +80,16 @@ header{
 }
 .martian-photo{
     width: 100%;
+    /* height: 100%; */
+    object-fit: contain;
+    object-position: left top; 
+}
+.martian-photo-rover-page{
+    width: 100%;
     height: 100%;
     object-fit: contain;
+    object-position: center center; 
+    /* even fixen voor popover en rover img */
 }
 .mars-img-popover-container{
     width:95vw;
@@ -96,4 +117,21 @@ header{
     color:whitesmoke;
     position: absolute;
     top:2rem;
+}
+
+
+/* mediaquerie rover photo's */
+@media screen and (min-width: 360px){
+
+.opportunity{
+    background:url('/opportunity.webp') no-repeat center top -2rem;
+    background-size: cover;
+
+}
+.spirit{
+    background:url('/spirit.webp') no-repeat center top -2rem;
+    background-size: cover;
+
+
+}
 }

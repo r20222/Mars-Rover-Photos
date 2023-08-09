@@ -7,7 +7,7 @@ const app = express()
 // importeer dotenv
 import 'dotenv/config'
 
-// om fetch te gebruiken voor online zetten, nodig om op render te zetten?
+// om fetch te gebruiken voor online zetten, nodig om op render te zetten
 import fetch from 'node-fetch';
 
 

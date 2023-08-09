@@ -1,7 +1,9 @@
 <%- include('./partials/head.ejs') %>
 
 <h2 class="rover-name"><%= rover %></h2>
-<div class="<%= rover %> rover-image-box"></div>
+<div class="<%= rover %> rover-image-box">
+
+</div>
 
 <article>
     <h3>Information:</h3>
@@ -54,7 +56,7 @@
 
     <div class="mars-photo-container">
         <button popovertarget="<%= photo.id %>">
-            <img src="<%= photo.img_src %>" alt="Martian photo" class="martian-photo"> 
+            <img src="<%= photo.img_src %>" alt="Martian photo" class="martian-photo-rover-page"> 
         </button>
 
         <div class="mars-img-popover-container" id="<%= photo.id %>" popover>
@@ -63,7 +65,7 @@
             </button>
             <p class="rover-name-popover">Rover name: <%= photo.rover.name %></p>
             <p class="camera-name">Camera: <%= photo.camera.full_name %> </p>
-            <img src="<%= photo.img_src %>" alt="Martian photo" class="martian-photo">
+            <img src="<%= photo.img_src %>" alt="Martian photo" class="martian-photo-rover-page">
         </div>
     </div>
 
