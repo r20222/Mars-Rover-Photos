@@ -19,8 +19,11 @@ Nasa API
 Curiosity photo:
 * https://mars.nasa.gov/system/feature_items/images/6037_msl_banner.jpg
 
-Opportunity/Spirit photo:
+Opportunity photo:
 * https://solarsystem.nasa.gov/missions/opportunity/in-depth/
+
+Spirit photo:
+* https://www.nasa.gov/audience/foreducators/robotics/imagegallery/r_spirit.jpg.html
 
 Google Font:
 * https://fonts.google.com/specimen/Martian+Mono
