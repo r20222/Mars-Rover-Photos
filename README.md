@@ -24,3 +24,6 @@ Opportunity/Spirit photo:
 
 Google Font:
 * https://fonts.google.com/specimen/Martian+Mono
+
+Changing photo formats:
+* https://convertio.co/
