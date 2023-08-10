@@ -50,7 +50,11 @@
     <input type="submit" value="SHOW PHOTOS">
 </form>
 
-<p>The photos below are taken on earth date: <%= solData.photos[0].earth_date %></p>
+    <% if(solData.photos.length > 0){ %>
+        <p>The photos below are taken on earth date: <%= solData.photos[0].earth_date %></p>
+    <% } else { %>
+        <p>No photos to show, go to the previous.</p>
+    <% } %>
 
 <% solData.photos.forEach(photo => { %> 
 
@@ -71,7 +75,30 @@
     
 <% }); %>
 
-<button class="more-photos-button">SHOW MORE PHOTOS</button>
+<!-- previous button -->
+<% if(parseInt(page) > 1){ %>
+    <form>
+        <input type="hidden" id="sol" name="sol" min="1" max="<%= roverData.photo_manifest.max_sol %>" value="<%= sol || 1 %>">
+        <input type="hidden" name="rover" value="<%= rover %>">
+
+        <input type="hidden" name="page" value="<%= parseInt(page) - 1 %>">
+        <input type="submit" value="PREVIOUS PAGE">
+    </form>
+<% } %>
+
+<!-- next button -->
+<% if(solData.photos.length > 0 && solData.photos.length === 25){ %>
+    <form>
+        <input type="hidden" id="sol" name="sol" min="1" max="<%= roverData.photo_manifest.max_sol %>" value="<%= sol || 1 %>">
+        <input type="hidden" name="rover" value="<%= rover %>">
+
+        <input type="hidden" name="page" value="<%= parseInt(page) + 1 %>">
+        <input type="submit" value="NEXT PAGE">
+    </form>
+<% } %>
+
+
+
 
 
 <%- include('./partials/foot.ejs') %>

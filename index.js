@@ -37,47 +37,31 @@ app.get('/rover.ejs', (request, response) => {
 
 
   const sol = request.query.sol;
-  // const solUrl = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?sol=${sol}&api_key=${process.env.marsRoverKey}`;
-
-  // const solUrl = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?sol=${sol}&api_key=${process.env.marsRoverKey}`;
-
-
-  // Promise.all([fetchJson(roverUrl), fetchJson(solUrl)])
-  // .then(([roverData, solData]) => {
-  //   response.render('index', {roverData: roverData, solData: solData, rover: rover})
-  // }) 
-  // .catch(error => {
-  //   console.error('Fout bij het ophalen van gegevens:', error);
-  //   response.render('error', { error: error }); // Toon een foutpagina met de foutinformatie
-  // });
-
 
   let solUrl = null;
 
   fetchJson(roverUrl)
     .then(roverData => {
       const maxSol = roverData.photo_manifest.max_sol;
-
+      let page = request.query.page || 1;
+      
       if (sol) {
-        solUrl = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?sol=${sol}&page=1&api_key=${process.env.marsRoverKey}`;
+        solUrl = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?sol=${sol}&page=${page}&api_key=${process.env.marsRoverKey}`;
       } else {
         // Gebruik maxSol als standaardwaarde
-        solUrl = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?sol=${maxSol}&page=1&api_key=${process.env.marsRoverKey}`;
+        solUrl = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?sol=${maxSol}&page=${page}&api_key=${process.env.marsRoverKey}`;
       }
 
       return fetchJson(solUrl)
         .then(solData => {
-          response.render('rover', { roverData: roverData, solData: solData, rover: rover });
+          response.render('rover', { roverData: roverData, solData: solData, rover: rover, sol:sol, page: page });
         });
     })
     .catch(error => {
       console.error('Fout bij het ophalen van gegevens:', error);
       response.render('error', { error: error });
     });
-  // fetchJson(roverUrl).then((data) => {
-  //   response.render('rover', {data: data, rover: rover})
-  //   console.log(data)
-  // })
+
 })
 
 // Stel het poortnummer in en start express
