@@ -118,6 +118,14 @@ header{
     position: absolute;
     top:2rem;
 }
+.popover-not-working{
+    display:none;
+}
+/* .more-photos-button{
+    color:black;
+    width:10rem;
+    height:10rem;
+} */
 
 
 /* mediaquerie rover photo's */

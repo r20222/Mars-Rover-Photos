@@ -59,7 +59,7 @@
             <img src="<%= photo.img_src %>" alt="Martian photo" class="martian-photo-rover-page"> 
         </button>
 
-        <div class="mars-img-popover-container" id="<%= photo.id %>" popover>
+        <div class="mars-img-popover-container popover" id="<%= photo.id %>" popover>
             <button class="popover-close" popovertarget="<%= photo.id %>" popovertargetaction="hide">
                 <span>Close &#10006;</span>
             </button>
@@ -68,10 +68,10 @@
             <img src="<%= photo.img_src %>" alt="Martian photo" class="martian-photo-rover-page">
         </div>
     </div>
-
+    
 <% }); %>
 
-
+<button class="more-photos-button">SHOW MORE PHOTOS</button>
 
 
 <%- include('./partials/foot.ejs') %>
