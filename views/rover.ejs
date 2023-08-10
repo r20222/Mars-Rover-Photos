@@ -75,29 +75,31 @@
     
 <% }); %>
 
-<!-- previous button -->
-<% if(parseInt(page) > 1){ %>
-    <form>
-        <input type="hidden" id="sol" name="sol" min="1" max="<%= roverData.photo_manifest.max_sol %>" value="<%= sol || 1 %>">
-        <input type="hidden" name="rover" value="<%= rover %>">
+<section class="previous-next-buttons">
 
-        <input type="hidden" name="page" value="<%= parseInt(page) - 1 %>">
-        <input type="submit" value="PREVIOUS PAGE">
-    </form>
-<% } %>
+    <!-- previous button -->
+    <% if(parseInt(page) > 1){ %>
+        <form class="previous-next-form">
+            <input type="hidden" id="sol" name="sol" min="1" max="<%= roverData.photo_manifest.max_sol %>" value="<%= sol || 1 %>">
+            <input type="hidden" name="rover" value="<%= rover %>">
 
-<!-- next button -->
-<% if(solData.photos.length > 0 && solData.photos.length === 25){ %>
-    <form>
-        <input type="hidden" id="sol" name="sol" min="1" max="<%= roverData.photo_manifest.max_sol %>" value="<%= sol || 1 %>">
-        <input type="hidden" name="rover" value="<%= rover %>">
+            <input type="hidden" name="page" value="<%= parseInt(page) - 1 %>">
+            <input class="previous-next-button previous-button" type="submit" value="PREVIOUS PAGE">
+        </form>
+    <% } %>
 
-        <input type="hidden" name="page" value="<%= parseInt(page) + 1 %>">
-        <input type="submit" value="NEXT PAGE">
-    </form>
-<% } %>
+    <!-- next button -->
+    <% if(solData.photos.length > 0 && solData.photos.length === 25){ %>
+        <form class="previous-next-form">
+            <input type="hidden" id="sol" name="sol" min="1" max="<%= roverData.photo_manifest.max_sol %>" value="<%= sol || 1 %>">
+            <input type="hidden" name="rover" value="<%= rover %>">
 
+            <input type="hidden" name="page" value="<%= parseInt(page) + 1 %>">
+            <input class="previous-next-button next-button" type="submit" value="NEXT PAGE">
+        </form>
+    <% } %>
 
+</section>
 
 
 

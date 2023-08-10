@@ -121,14 +121,34 @@ header{
 .popover-not-working{
     display:none;
 }
-/* .more-photos-button{
-    color:black;
-    width:10rem;
-    height:10rem;
-} */
 
+/* previous-next-buttons */
+.previous-next-buttons{
+    display: flex;
+    justify-content: space-between;
+    width:100%;
+}
+.previous-next-form{
+    display:grid;
+    width:100%;
+}
+.previous-next-button{
+    width:7.8rem;
+    height:3rem;
+}
+.previous-button{
+    justify-self: start;
+}
+.next-button{
+    justify-self: end;
+}
 
-/* mediaquerie rover photo's */
+/* footer */
+footer{
+    height:5rem;
+}
+
+/* mediaquerie rover photo's, next buttons */
 @media screen and (min-width: 360px){
 
 .opportunity{
@@ -139,7 +159,8 @@ header{
 .spirit{
     background:url('/spirit.webp') no-repeat center top -2rem;
     background-size: cover;
-
-
+}
+.previous-next-button{
+    width:10rem;
 }
 }
