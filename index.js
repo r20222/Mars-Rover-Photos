@@ -10,6 +10,18 @@ import 'dotenv/config'
 // om fetch te gebruiken voor online zetten, nodig om op render te zetten
 import fetch from 'node-fetch';
 
+// openai
+// import { Configuration, OpenAIApi } from 'openai'
+
+// const configuration = new Configuration({
+//   apiKey: process.env.OPENAI_API_KEY,
+// });
+// const openai = new OpenAIApi(configuration);
+
+
+
+
+
 
 // Maak routes met express naar de views & public 
 app.set('view engine', 'ejs')
@@ -29,6 +41,45 @@ app.get('/', (request, response) => {
       response.render('index', {curiosity: curiosity, opportunity: opportunity, spirit: spirit})
     })
   })
+
+  // const chatCompletion1 = await openai.createChatCompletion({
+  //   model: 'gpt-3.5-turbo',
+  //   messages:  [{role: "user", content: "Hello world"}],
+  // });
+  // console.log(chatCompletion1.data.choices[0].message);
+
+// test met openai
+
+// Voeg de nodige importverklaringen toe bovenaan je server.js-bestand
+
+// Definieer een serverendpoint om chatconversaties te verwerken
+// app.post('/', async (req, res) => {
+//   try {
+//     const userInput = req.body.userInput; Gebruikersinvoer van je website
+//     const conversation = [
+//       { role: 'user', content: userInput },
+      // Voeg hier eventueel eerdere berichten uit de conversatie toe
+    // ];
+
+      
+   // Log de geposte invoer en de OpenAI-reactie naar de console
+//    console.log('Gebruikersinvoer:', userInput);
+//    console.log('OpenAI-reactie:', generatedMessage);
+
+ 
+        
+//     const generatedMessage = chatCompletion1.data.choices[0].message;
+//     res.json({ response: generatedMessage });
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).json({ error: 'Er is een fout opgetreden' });
+//   }
+// });
+
+
+
+
+
 
 // Maak een route voor de rover pagina
 app.get('/rover.ejs', (request, response) => {
@@ -61,8 +112,51 @@ app.get('/rover.ejs', (request, response) => {
       console.error('Fout bij het ophalen van gegevens:', error);
       response.render('error', { error: error });
     });
-
 })
+
+// test sitemap
+
+
+
+app.get('/sitemap.xml', (req, res) => {
+  const xmlContent = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+  http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  <!--  created with Free Online Sitemap Generator www.xml-sitemaps.com  -->
+  <url>
+    <loc>https://mars-rover-photos.onrender.com/</loc>
+    <lastmod>2023-08-13T14:04:13+00:00</lastmod>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://mars-rover-photos.onrender.com/rover.ejs?rover=curiosity&amp;sol=3916</loc>
+    <lastmod>2023-08-13T14:04:13+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://mars-rover-photos.onrender.com/rover.ejs?rover=opportunity&amp;sol=5111</loc>
+    <lastmod>2023-08-13T14:04:13+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://mars-rover-photos.onrender.com/rover.ejs?rover=spirit&amp;sol=2208</loc>
+    <lastmod>2023-08-13T14:04:13+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+</urlset>`;
+
+  res.set('Content-Type', 'text/xml');
+  res.send(xmlContent);
+});
+
+
+
+
+
+
+
 
 // Stel het poortnummer in en start express
 const PORT = process.env.PORT || 8000;
