@@ -108,6 +108,9 @@ header{
     font-size: 2rem;
     position: absolute;
 }
+.popover-close:hover, .popover-available-pointer{
+    cursor:pointer;
+}
 .camera-name{
     color:whitesmoke;
     position: absolute;
