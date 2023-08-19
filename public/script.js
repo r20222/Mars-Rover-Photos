@@ -6,10 +6,12 @@ function elementSupportsAttribute(attribute) {
 
   popover.forEach(popover => {
     if (attribute in popover) {
-      const popoverButton = document.querySelector('.mars-popover-available-button')
+      const popoverButton = document.querySelectorAll('.mars-popover-available-button')
 
       console.log(true);
-      popoverButton.classList.add('popover-available-pointer')
+      popoverButton.forEach(button => {
+        button.classList.add('popover-available-pointer')
+      })
     } else {
       console.log(false);
    popover.classList.add('popover-not-working')

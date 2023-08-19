@@ -1,19 +1,28 @@
 <%- include('./partials/head.ejs') %>
 
 
-<p>Welcome to my NASA Rover Photos website. I made this website to practice with data from 
+<p class="welcome-message">Welcome to my NASA Rover Photos website. I made this website to practice with data from 
     the NASA API and to learn more about Mars and the Rovers Curiosity, Opportunity and Spirit. Click
     on one of the Rovers below to learn more about them and see their photos.</p>
 
 
-<a href="/rover.ejs?rover=curiosity&sol=<%= curiosity.photo_manifest.max_sol %>" title="Curiosity" class="index-rovers curiosity">
-    <span>Curiosity</span>
-</a>
-<a href="/rover.ejs?rover=opportunity&sol=<%= opportunity.photo_manifest.max_sol %>" title="Opportunity" class="index-rovers opportunity">
-    <span>Opportunity</span>
-</a>
-<a href="/rover.ejs?rover=spirit&sol=<%= spirit.photo_manifest.max_sol %>" title="Spirit" class="index-rovers spirit">
-    <span>Spirit</span>
-</a>
+<section class="desktop-index-rovers">
+    <a href="/rover.ejs?rover=curiosity&sol=<%= curiosity.photo_manifest.max_sol %>" title="Curiosity" class="index-rovers curiosity">
+        <span>Curiosity</span>
+    </a>
+    <a href="/rover.ejs?rover=opportunity&sol=<%= opportunity.photo_manifest.max_sol %>" title="Opportunity" class="index-rovers opportunity">
+        <span>Opportunity</span>
+    </a>
+    <a href="/rover.ejs?rover=spirit&sol=<%= spirit.photo_manifest.max_sol %>" title="Spirit" class="index-rovers spirit">
+        <span>Spirit</span>
+    </a>
+</section>
+<!-- openai -->
+<!-- Voeg dit ergens toe aan je index.html -->
+<!-- <form method="post" id="chat-form">
+    <input type="text" id="user-input" placeholder="Typ hier je vraag...">
+    <button type="submit">Verzenden</button>
+  </form>
+  <div id="chat-output"></div> -->
 
 <%- include('./partials/foot.ejs') %>

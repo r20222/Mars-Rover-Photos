@@ -5,7 +5,7 @@
 
 </div>
 
-<article>
+<article class="desktop-article-rover-info">
     <h3>Information:</h3>
 
     <!-- launch date, met hulp van chatgpt -->
@@ -42,7 +42,7 @@
     </p>
 </article>
 
-<form action="/rover.ejs">
+<form action="/rover.ejs" class="sol-input">
     <label for="sol">Sol:</label>
     <input type="number" id="sol" name="sol" min="1" max="<%= roverData.photo_manifest.max_sol %>">
 
@@ -51,9 +51,9 @@
 </form>
 
     <% if(solData.photos.length > 0){ %>
-        <p>The photos below are taken on earth date: <%= solData.photos[0].earth_date %></p>
+        <p class="sol-date">The photos below are taken on earth date: <%= solData.photos[0].earth_date %></p>
     <% } else { %>
-        <p>No photos to show, go to another sol or previous page.</p>
+        <p class="sol-date">No photos to show, go to another sol or previous page.</p>
     <% } %>
 
 <% solData.photos.forEach(photo => { %> 
