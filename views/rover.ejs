@@ -1,79 +1,94 @@
 <%- include('./partials/head.ejs') %>
 
 <h2 class="rover-name"><%= rover %></h2>
-<div class="<%= rover %> rover-image-box">
 
-</div>
+<section class="rover-img-explaination">
+    <div class="<%= rover %> rover-image-box"></div>
 
-<article class="desktop-article-rover-info">
-    <h3>Information:</h3>
 
-    <!-- launch date, met hulp van chatgpt -->
-    <% const inputDate = roverData.photo_manifest.launch_date; %>
-    <% const dateParts = inputDate.split("-"); %>
-
-    <% const year = dateParts[0]; %>
-    <% const month = dateParts[1]; %>
-    <% const day = dateParts[2]; %>
-
-    <% const formattedDateLaunch = `${day}-${month}-${year}`; %>
-
-    <!-- landing date -->
-    <% const inputDateLanding = roverData.photo_manifest.landing_date; %>
-    <% const datePartsLanding = inputDateLanding.split("-"); %>
-
-    <% const yearLanding = datePartsLanding[0]; %>
-    <% const monthLanding = datePartsLanding[1]; %>
-    <% const dayLanding = datePartsLanding[2]; %>
-
-    <% const formattedDateLanding = `${dayLanding}-${monthLanding}-${yearLanding}`; %>
-
-    <ul class="information-rover-list">
-        <li>Launch date: <%= formattedDateLaunch %></li>
-        <li>Landing date: <%= formattedDateLanding %></li>
-        <li>Status: <%= roverData.photo_manifest.status %></li>
-        <li>Total photos: <%= roverData.photo_manifest.total_photos %></li>
-        <li>Total sols: <%= roverData.photo_manifest.max_sol %></li>
-    </ul>
-
-    <p>
-        Choose a Martian sol and see the photo's made on that sol. A "sol" is a term that is being used to indicate a day on Mars.
-        The sols are being counted as days since the landing.
-    </p>
-</article>
-
-<form action="/rover.ejs" class="sol-input">
-    <label for="sol">Sol:</label>
-    <input type="number" id="sol" name="sol" min="1" max="<%= roverData.photo_manifest.max_sol %>">
-
-    <input type="hidden" name="rover" value="<%= rover %>">
-    <input type="submit" value="SHOW PHOTOS">
-</form>
-
-    <% if(solData.photos.length > 0){ %>
-        <p class="sol-date">The photos below are taken on earth date: <%= solData.photos[0].earth_date %></p>
-    <% } else { %>
-        <p class="sol-date">No photos to show, go to another sol or previous page.</p>
-    <% } %>
-
-<% solData.photos.forEach(photo => { %> 
-
-    <div class="mars-photo-container">
-        <button class="mars-popover-available-button" popovertarget="<%= photo.id %>">
-            <img src="<%= photo.img_src %>" alt="Martian photo" class="martian-photo-rover-page"> 
-        </button>
-
-        <div class="mars-img-popover-container popover" id="<%= photo.id %>" popover>
-            <button class="popover-close" popovertarget="<%= photo.id %>" popovertargetaction="hide">
-                <span>Close &#10006;</span>
-            </button>
-            <p class="rover-name-popover">Rover name: <%= photo.rover.name %></p>
-            <p class="camera-name">Camera: <%= photo.camera.full_name %> </p>
-            <img src="<%= photo.img_src %>" alt="Martian photo" class="martian-photo-rover-page">
-        </div>
-    </div>
+    <article class="desktop-article-rover-info">
+        <h3>Information:</h3>
     
-<% }); %>
+        <!-- launch date, met hulp van chatgpt -->
+        <% const inputDate = roverData.photo_manifest.launch_date; %>
+        <% const dateParts = inputDate.split("-"); %>
+    
+        <% const year = dateParts[0]; %>
+        <% const month = dateParts[1]; %>
+        <% const day = dateParts[2]; %>
+    
+        <% const formattedDateLaunch = `${day}-${month}-${year}`; %>
+    
+        <!-- landing date -->
+        <% const inputDateLanding = roverData.photo_manifest.landing_date; %>
+        <% const datePartsLanding = inputDateLanding.split("-"); %>
+    
+        <% const yearLanding = datePartsLanding[0]; %>
+        <% const monthLanding = datePartsLanding[1]; %>
+        <% const dayLanding = datePartsLanding[2]; %>
+    
+        <% const formattedDateLanding = `${dayLanding}-${monthLanding}-${yearLanding}`; %>
+    
+        <ul class="information-rover-list">
+            <li>Launch date: <%= formattedDateLaunch %></li>
+            <li>Landing date: <%= formattedDateLanding %></li>
+            <li>Status: <%= roverData.photo_manifest.status %></li>
+            <li>Total photos: <%= roverData.photo_manifest.total_photos %></li>
+            <li>Total sols: <%= roverData.photo_manifest.max_sol %></li>
+        </ul>
+    
+        <p>
+            Choose a Martian sol and see the photo's made on that sol. A "sol" is a term that is being used to indicate a day on Mars.
+            The sols are being counted as days since the landing.
+        </p>
+
+
+        <form action="/rover.ejs" class="sol-input">
+            <label for="sol">Sol:</label>
+            <input type="number" id="sol" name="sol" min="1" max="<%= roverData.photo_manifest.max_sol %>">
+        
+            <input type="hidden" name="rover" value="<%= rover %>">
+            <input type="submit" value="SHOW PHOTOS">
+        </form>
+
+
+        <% if(solData.photos.length > 0){ %>
+            <p class="sol-date">The photos below are taken on earth date: <%= solData.photos[0].earth_date %></p>
+        <% } else { %>
+            <p class="sol-date">No photos to show, go to another sol or previous page.</p>
+        <% } %>
+    </article>
+</section>
+
+
+
+
+
+
+   
+
+<section class="rover-photos-container">
+    <% solData.photos.forEach(photo => { %> 
+
+        <div class="mars-photo-container">
+            <button class="mars-popover-available-button" popovertarget="<%= photo.id %>">
+                <img src="<%= photo.img_src %>" alt="Martian photo" class="martian-photo-rover-page"> 
+            </button>
+
+            <div class="mars-img-popover-container popover" id="<%= photo.id %>" popover>
+                <button class="popover-close" popovertarget="<%= photo.id %>" popovertargetaction="hide">
+                    <span>Close &#10006;</span>
+                </button>
+                <p class="rover-name-popover">Rover name: <%= photo.rover.name %></p>
+                <p class="camera-name">Camera: <%= photo.camera.full_name %> </p>
+                <img src="<%= photo.img_src %>" alt="Martian photo" class="martian-photo-rover-page">
+            </div>
+        </div>
+        
+    <% }); %>
+</section>
+
+
 
 <section class="previous-next-buttons">
 

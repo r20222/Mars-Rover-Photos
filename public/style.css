@@ -21,6 +21,9 @@ header{
     color:black;
     font-weight: bold;
 }
+.mars-svg{
+    display:none;
+}
 .index-rovers{
     height:13rem;
     display: flex;
@@ -187,33 +190,16 @@ footer{
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        /* width:100%; */
     }
     header{
         width:30rem;
     }
     .welcome-message{
         max-width:30rem;
-        /* margin-top:4rem; */
     }
     .index-rovers{
-        /* height:13rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 1rem;
-        text-decoration: none; */
         width:30rem;
         height: 20rem;
-        /* max-width:20rem; */
-        
-    }
-    .desktop-index-rovers{
-        /* display: flex;
-        flex-wrap: wrap; */
-        /* flex-grow: 1; */
-        /* grid-template-columns: repeat(2, 1fr);
-        grid-gap: 1rem; */
     }
 
     /* rovers page */
@@ -231,6 +217,182 @@ footer{
 
     footer{
         width:30rem;
+    }
+    footer p{
+        width:25rem;
+    }
+}
+
+
+/* desktop vanaf 1020px */
+
+@media screen and (min-width: 1020px){
+    /* body{
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+    } */
+    header{
+        margin-top:2rem;
+        width:62rem;
+    }
+    .header-link{
+        font-size: 2rem;
+    }
+    .desktop-welcome{
+        width:62rem;
+        display: flex;
+        justify-content: space-between;
+    }
+    .welcome-message{
+        max-width:30rem;
+        margin-top:4rem;
+        margin-bottom: 4rem;
+    }
+    .mars-svg-container{
+        display: flex;
+        justify-content: center;
+        width:30rem;
+    }
+    .mars-svg{
+        display: flex;
+        animation: mars 40s infinite linear;
+    }
+    @keyframes mars{
+        100%{
+            rotate: 360deg;
+        }
+    }
+    .index-rovers{
+        width:30rem;
+        height: 20rem;
+        margin-bottom: 1rem;
+    }
+    .desktop-index-rovers{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap:1rem;
+        max-width: 62rem;
+    }
+
+    /* rovers page */ 
+    .rover-name, 
+    .previous-next-buttons{
+        width: 62rem;
+    }
+    .rover-name{
+        margin-top:3rem;
+    }
+    .rover-image-box{
+        height:20rem;
+        width:30rem;
+    }
+    .desktop-article-rover-info{
+        max-width:30rem;
+    }
+    .rover-img-explaination{
+        display: flex;
+        width: 62rem;
+        gap:1rem;
+        justify-content: space-between;
+        margin-bottom:4rem;
+    }
+
+    .rover-photos-container{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        width: 62rem;
+    }
+    .mars-photo-container{
+        width:20rem;
+    }
+    .mars-photo-container:nth-child(3n+1) {
+        justify-self: start;
+    }
+    
+    .mars-photo-container:nth-child(3n+2) {
+        justify-self: center;
+    }
+    
+    .mars-photo-container:nth-child(3n) {
+        justify-self: end;
+    }
+
+    footer{
+        width:62rem;
+    }
+    footer p{
+        width:25rem;
+    }
+}
+
+/* desktop 1200px */
+@media screen and (min-width: 1200px){
+    header{
+        width:70rem;
+    }
+    .desktop-welcome{
+        width:70rem;
+        display: flex;
+        justify-content: space-between;
+    }
+    .welcome-message{
+        max-width:30rem;
+        margin-top:4rem;
+        margin-bottom: 4rem;
+    }
+    .mars-svg-container{
+        display: flex;
+        justify-content: center;
+        width:30rem;
+    }
+    .mars-svg{
+        display: flex;
+        animation: mars 40s infinite linear;
+    }
+    @keyframes mars{
+        100%{
+            rotate: 360deg;
+        }
+    }
+    .index-rovers{
+        width:33rem;
+        height: 21rem;
+        margin-bottom: 3rem;    
+    }
+    .desktop-index-rovers{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap:1rem;
+        max-width: 70rem;
+    }
+
+    /* rovers page */
+    
+    .rover-name, 
+    .previous-next-buttons{
+        width: 70rem;
+    }
+    .rover-image-box{
+        height:20rem;
+    }
+    .rover-img-explaination{
+        width: 70rem;
+    }
+    .rover-photos-container{
+        width: 70rem;
+    }
+
+    .mars-photo-container{
+        width:22.5rem;
+    }
+   
+
+    footer{
+        width:70rem;
     }
     footer p{
         width:25rem;
