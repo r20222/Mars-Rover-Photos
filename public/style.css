@@ -258,6 +258,8 @@ footer{
     .mars-svg{
         display: flex;
         animation: mars 40s infinite linear;
+        background-color: black;
+        border-radius: 50%;
     }
     @keyframes mars{
         100%{
