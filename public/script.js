@@ -24,26 +24,39 @@ function elementSupportsAttribute(attribute) {
 
 // openai testest
 
-// Voeg dit toe aan je bestaande JavaScript-code of een apart JavaScript-bestand
+const chatForm = document.getElementById('chat-form');
+const userInput = document.getElementById('user-input');
+const chatOutput = document.getElementById('chat-output');
 
-// const chatForm = document.getElementById('chat-form');
-// const userInput = document.getElementById('user-input');
-// const chatOutput = document.getElementById('chat-output');
 
-// chatForm.addEventListener('submit', async (event) => {
-//   event.preventDefault();
+chatForm.addEventListener('submit', async (event) => {
+  event.preventDefault();
 
-//   const userMessage = userInput.value;
+  const userMessage = userInput.value;
 
-  // Voer hier de code uit om de chatbot-aanroep te doen en de reactie te verkrijgen
-  // Gebruik de eerder besproken API-aanroep en verwerk de chatbot-reactie
+  try {
+    const response = await fetch('/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ userInputForm: userMessage }),
+    });
 
-  // Voeg de gebruikersinvoer en chatbot-reactie toe aan de pagina
-  // chatOutput.innerHTML += `
-  //   <div class="user-message">${userMessage}</div>
-  //   <div class="bot-message">${chatOutput}</div>
-  // `;
+    const data = await response.json();
 
-  // Wis het invoerveld
-//   userInput.value = '';
-// });
+    const botMessage = data.response;
+
+    // Voeg de gebruikersinvoer en chatbot-reactie toe aan de pagina
+    chatOutput.innerHTML += `
+      <li class="user-message"><span class="martian">You: </span>${userMessage}</li>
+      <li class="bot-message"><span class="martian">Martian: </span>${botMessage.content}</li>
+    `;
+
+    // Wis het invoerveld
+    userInput.value = '';
+  } catch (error) {
+    console.error(error);
+  }
+});
+

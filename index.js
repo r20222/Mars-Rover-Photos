@@ -10,13 +10,20 @@ import 'dotenv/config'
 // om fetch te gebruiken voor online zetten, nodig om op render te zetten
 import fetch from 'node-fetch';
 
-// openai
-// import { Configuration, OpenAIApi } from 'openai'
+// importeer body-parser om gegevens uit de body op te kunnen halen
+import bodyParser from 'body-parser'
 
-// const configuration = new Configuration({
-//   apiKey: process.env.OPENAI_API_KEY,
-// });
-// const openai = new OpenAIApi(configuration);
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+
+// openai
+import { Configuration, OpenAIApi } from 'openai'
+
+const configuration = new Configuration({
+  apiKey: process.env.OPENAI_API_KEY,
+});
+const openai = new OpenAIApi(configuration);
 
 
 
@@ -28,6 +35,9 @@ app.set('view engine', 'ejs')
 app.set('views', './views')
 app.use(express.static('public'))
 
+// Stel afhandeling van formulieren in
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
 
 // Maak een route voor de index
 app.get('/', (request, response) => {
@@ -42,42 +52,33 @@ app.get('/', (request, response) => {
     })
   })
 
-  // const chatCompletion1 = await openai.createChatCompletion({
-  //   model: 'gpt-3.5-turbo',
-  //   messages:  [{role: "user", content: "Hello world"}],
-  // });
-  // console.log(chatCompletion1.data.choices[0].message);
+  
 
-// test met openai
+// post vragen naar openai
+app.post('/', async (req, res) => {
 
-// Voeg de nodige importverklaringen toe bovenaan je server.js-bestand
+  try {
+    const userInput = req.body.userInputForm;
 
-// Definieer een serverendpoint om chatconversaties te verwerken
-// app.post('/', async (req, res) => {
-//   try {
-//     const userInput = req.body.userInput; Gebruikersinvoer van je website
-//     const conversation = [
-//       { role: 'user', content: userInput },
-      // Voeg hier eventueel eerdere berichten uit de conversatie toe
-    // ];
+    const chatCompletion1 = await openai.createChatCompletion({
+      model: 'gpt-3.5-turbo',
+      messages: [{ role: "user", content: userInput }],
+    });
 
-      
-   // Log de geposte invoer en de OpenAI-reactie naar de console
-//    console.log('Gebruikersinvoer:', userInput);
-//    console.log('OpenAI-reactie:', generatedMessage);
+    const generatedMessage = chatCompletion1.data.choices[0].message;
+    
+    // Log de geposte invoer en de OpenAI-reactie naar de console
+    console.log('Gebruikersinvoer:', userInput);
+    console.log('OpenAI-reactie:', generatedMessage);
+    
 
- 
-        
-//     const generatedMessage = chatCompletion1.data.choices[0].message;
-//     res.json({ response: generatedMessage });
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).json({ error: 'Er is een fout opgetreden' });
-//   }
-// });
-
-
-
+    // Stuur de gegenereerde reactie als JSON terug naar de frontend
+    res.json({ response: generatedMessage });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Er is een fout opgetreden' });
+  }
+});
 
 
 
@@ -86,7 +87,7 @@ app.get('/rover.ejs', (request, response) => {
   const rover = request.query.rover;
   const roverUrl = `https://api.nasa.gov/mars-photos/api/v1/manifests/${rover}?api_key=${process.env.marsRoverKey}`;
 
-
+  console.log('hello hello')
   const sol = request.query.sol;
 
   let solUrl = null;
@@ -116,7 +117,8 @@ app.get('/rover.ejs', (request, response) => {
 
 // test sitemap
 
-
+// https://stackoverflow.com/questions/37194630/how-to-generate-a-sitemap-in-expressjs
+// https://www.xml-sitemaps.com/details-mars-rover-photos.onrender.com-a2e393bbe.html
 
 app.get('/sitemap.xml', (req, res) => {
   const xmlContent = `<?xml version="1.0" encoding="UTF-8"?>

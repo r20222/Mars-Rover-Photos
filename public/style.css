@@ -32,7 +32,7 @@ header{
     margin-bottom: 1rem;
     text-decoration: none;
 }
-.index-rovers span{
+.index-rovers .span-rover{
     color: whitesmoke;
     background-color: rgba(0, 0, 0, .6);
     font-size: 2rem;
@@ -55,7 +55,59 @@ header{
 
 
 }
+.martian-ai{
+    background-color: #5A5446;
 
+    height: 24rem;
+    display: block;
+    /* border: 2px solid black; */
+}
+.martian-ai h2{
+    font-size: 1rem;
+    margin-left:1rem;
+    padding-top:1rem;
+    color: whitesmoke;
+}
+.martian-ai form{
+    margin-left:1rem;
+
+}
+.martian-ai input{
+    height:2rem;
+    width:calc(50% + 15vw)
+}
+.martian-ai button{
+  height: 2.1rem;
+  padding: 0 calc(.3rem + 1vw);
+}
+#chat-output{
+    overflow-y: scroll;
+    height: 16rem;
+    background-color: snow;
+    font-size: 1rem;
+}
+#chat-output li:nth-child(1){
+    background-color: lightgrey;
+}
+#chat-output li{
+    margin:1rem 1rem;
+    padding: 0 1rem;
+    list-style: none;
+}
+
+.martian{
+    color: black;
+    background-color: none;
+    font-size: 1rem;
+    padding: 0;
+    display: block;
+}
+.user-message{
+    background-color: navajowhite;
+}
+.bot-message{
+    background-color: lightgrey;
+}
 /* Rovers page */
 .rover-name::first-letter {
     text-transform: uppercase;
