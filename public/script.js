@@ -34,6 +34,11 @@ chatForm.addEventListener('submit', async (event) => {
 
   const userMessage = userInput.value;
 
+  chatOutput.innerHTML += `
+  <li class="user-message"><span class="martian">You: </span>${userMessage}</li>`;
+
+  // Wis het invoerveld
+  userInput.value = '';
   try {
     const response = await fetch('/', {
       method: 'POST',
@@ -49,12 +54,10 @@ chatForm.addEventListener('submit', async (event) => {
 
     // Voeg de gebruikersinvoer en chatbot-reactie toe aan de pagina
     chatOutput.innerHTML += `
-      <li class="user-message"><span class="martian">You: </span>${userMessage}</li>
       <li class="bot-message"><span class="martian">Martian: </span>${botMessage.content}</li>
     `;
 
-    // Wis het invoerveld
-    userInput.value = '';
+    
   } catch (error) {
     console.error(error);
   }
