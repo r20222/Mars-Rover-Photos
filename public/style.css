@@ -57,14 +57,14 @@ header{
 }
 .martian-ai{
     background-color: #5A5446;
-
     height: 24rem;
     display: block;
-    /* border: 2px solid black; */
+    width:100%;
 }
 .martian-ai h2{
     font-size: 1rem;
     margin-left:1rem;
+    margin-right:1rem;
     padding-top:1rem;
     color: whitesmoke;
 }
@@ -74,7 +74,8 @@ header{
 }
 .martian-ai input{
     height:2rem;
-    width:calc(50% + 15vw)
+    width:65%;
+    /* background-color: blue; */
 }
 .martian-ai button{
   height: 2.1rem;

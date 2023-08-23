@@ -37,6 +37,9 @@ chatForm.addEventListener('submit', async (event) => {
   chatOutput.innerHTML += `
   <li class="user-message"><span class="martian">You: </span>${userMessage}</li>`;
 
+  // om automatisch het laatst gestuurde bericht onderin te zetten
+  chatOutput.scrollTop = chatOutput.scrollHeight
+
   // Wis het invoerveld
   userInput.value = '';
   try {
@@ -54,10 +57,12 @@ chatForm.addEventListener('submit', async (event) => {
 
     // Voeg de gebruikersinvoer en chatbot-reactie toe aan de pagina
     chatOutput.innerHTML += `
-      <li class="bot-message"><span class="martian">Martian: </span>${botMessage.content}</li>
+    <li class="bot-message"><span class="martian">Martian: </span>${botMessage.content}</li>
     `;
-
-    
+     
+     // om automatisch het laatst gestuurde bericht onderin te zetten
+    chatOutput.scrollTop = chatOutput.scrollHeight
+ 
   } catch (error) {
     console.error(error);
   }
