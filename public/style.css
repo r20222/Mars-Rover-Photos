@@ -57,9 +57,10 @@ header{
 }
 .martian-ai{
     background-color: #5A5446;
-    height: 24rem;
+    height: 26rem;
     display: block;
     width:100%;
+    margin-bottom: 0;
 }
 .martian-ai h2{
     font-size: 1rem;
@@ -68,22 +69,25 @@ header{
     padding-top:1rem;
     color: whitesmoke;
 }
-.martian-ai form{
-    margin-left:1rem;
-
+.ai-form{
+    /* margin-left:1rem; */
+    background-color: #5A5446;
+    height: 4rem;
+    display:flex;
+    justify-content: center;
+    align-items: center;
 }
-.martian-ai input{
+.ai-form input{
     height:2rem;
-    width:65%;
-    /* background-color: blue; */
+    /* width:65%; */
 }
-.martian-ai button{
-  height: 2.1rem;
+.ai-form button{
+  height: 2.2rem;
   padding: 0 calc(.3rem + 1vw);
 }
 #chat-output{
     overflow-y: scroll;
-    height: 16rem;
+    height: 22rem;
     background-color: snow;
     font-size: 1rem;
 }
@@ -217,6 +221,16 @@ footer{
     line-height: 2rem;
 }
 
+/* martian form styling */
+@media screen and (min-width: 345px){
+    .martian-ai{
+        background-color: #5A5446;
+        height: 24rem;
+        display: block;
+        width:100%;
+        margin-bottom: 0;
+    }
+}
 
 
 /* mediaquerie rover photo's, next buttons */
