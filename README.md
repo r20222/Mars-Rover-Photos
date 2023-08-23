@@ -46,3 +46,5 @@ Changing photo formats:
 
 To host my project:
 * https://render.com/
+
+And also chatGPT helped me a lot.
