@@ -213,7 +213,7 @@ header{
 
 /* footer */
 footer{
-    margin-top:5rem;
+    margin-top:10rem;
     margin-bottom:3rem;
 }
 .footer-link{
@@ -406,6 +406,7 @@ footer{
     }
     footer{
         width:62rem;
+        margin-top:5rem;
     }
     footer p{
         width:25rem;
