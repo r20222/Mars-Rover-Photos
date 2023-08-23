@@ -21,22 +21,21 @@
     <a href="/rover.ejs?rover=spirit&sol=<%= spirit.photo_manifest.max_sol %>" title="Spirit" class="index-rovers spirit">
         <span class="span-rover">Spirit</span>
     </a>
-    <section class="martian-ai index-rovers">
+
+    <div class="martian-ai martian-ai-container index-rovers">
+    <section class="martian-ai">
         <h2>Ask Martian, the AI Rover</h2>
 
             <!-- openai -->
             <ul id="chat-output">
                 <li><span class="martian">Martian: </span>Ask me anything about Mars or the Rovers!</li>
             </ul>
-            
-            
-
     </section>
-
     <form class="ai-form" action="/" method="post" id="chat-form" >
         <input type="text" id="user-input" name="userInputForm" placeholder="Typ hier je vraag...">
         <button type="submit">SEND</button>
     </form>
+</div>
 </section>
 
 

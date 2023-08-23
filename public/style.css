@@ -268,6 +268,9 @@ footer{
         width:30rem;
         height: 20rem;
     }
+    .martian-ai-container{
+        margin-bottom: 3rem;
+    }
 
     /* rovers page */
     .rover-image-box, 
@@ -388,7 +391,15 @@ footer{
     .mars-photo-container:nth-child(3n) {
         justify-self: end;
     }
-
+    .martian-ai{
+        height: 15.15rem;
+    }
+    .martian-ai h2{
+        padding-top:0;
+    }
+    #chat-output{
+        height:13rem;
+    }
     footer{
         width:62rem;
     }
@@ -458,7 +469,17 @@ footer{
     .mars-photo-container{
         width:22.5rem;
     }
-   
+
+    /* form */
+    .martian-ai{
+        height: 16.15rem;
+    }
+    .martian-ai h2{
+        padding-top:0;
+    }
+    #chat-output{
+        height:14rem;
+    }
 
     footer{
         width:70rem;
