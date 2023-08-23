@@ -30,18 +30,19 @@ const chatOutput = document.getElementById('chat-output');
 
 
 chatForm.addEventListener('submit', async (event) => {
-  event.preventDefault();
+  event.preventDefault(); // voorkomt het herladen van de pagina
 
-  const userMessage = userInput.value;
+  const userMessage = userInput.value; // haalt de waarde op die is ingevoerd in het formulier
 
-  chatOutput.innerHTML += `
-  <li class="user-message"><span class="martian">You: </span>${userMessage}</li>`;
+  // voegt een list item toe aan chatoutput
+  chatOutput.innerHTML += `<li class="user-message"><span class="martian">You: </span>${userMessage}</li>`;
 
   // om automatisch het laatst gestuurde bericht onderin te zetten
   chatOutput.scrollTop = chatOutput.scrollHeight
 
   // Wis het invoerveld
   userInput.value = '';
+  
   try {
     const response = await fetch('/', {
       method: 'POST',

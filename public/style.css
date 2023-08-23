@@ -79,9 +79,10 @@ header{
 }
 .ai-form input{
     height:2rem;
-    /* width:65%; */
+    width:20rem;
     margin-left:1rem;
 }
+
 .ai-form button{
   height: 2.2rem;
   padding: 0 calc(.3rem + 1vw);
@@ -250,6 +251,7 @@ footer{
 .previous-next-button{
     width:10rem;
 }
+
 }
 
 /* mediaquerie 500px */
@@ -272,9 +274,6 @@ footer{
     }
     .martian-ai-container{
         margin-bottom: 3rem;
-    }
-    .ai-form input{
-        width:20rem;
     }
 
     /* rovers page */
