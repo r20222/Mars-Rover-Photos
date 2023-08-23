@@ -37,6 +37,12 @@ chatForm.addEventListener('submit', async (event) => {
   // voegt een list item toe aan chatoutput
   chatOutput.innerHTML += `<li class="user-message"><span class="martian">You: </span>${userMessage}</li>`;
 
+
+  // loading message
+  chatOutput.innerHTML += `
+  <li class="loading-message">Loading...</li>
+`;
+
   // om automatisch het laatst gestuurde bericht onderin te zetten
   chatOutput.scrollTop = chatOutput.scrollHeight
 
@@ -55,6 +61,10 @@ chatForm.addEventListener('submit', async (event) => {
     const data = await response.json();
 
     const botMessage = data.response;
+
+
+    // haalt de loader weg
+    chatOutput.innerHTML = chatOutput.innerHTML.replace('<li class="loading-message">Loading...</li>', '');
 
     // Voeg de gebruikersinvoer en chatbot-reactie toe aan de pagina
     chatOutput.innerHTML += `

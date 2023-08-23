@@ -87,7 +87,6 @@ app.get('/rover.ejs', (request, response) => {
   const rover = request.query.rover;
   const roverUrl = `https://api.nasa.gov/mars-photos/api/v1/manifests/${rover}?api_key=${process.env.marsRoverKey}`;
 
-  console.log('hello hello')
   const sol = request.query.sol;
 
   let solUrl = null;
