@@ -43,3 +43,6 @@ Google Font:
 
 Changing photo formats:
 * https://convertio.co/
+
+To host my project:
+* https://render.com/
