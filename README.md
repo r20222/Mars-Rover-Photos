@@ -11,6 +11,7 @@ What I have used:
 * HTML popover
 * NASA Mars Rover Photos API
 * OpenAI API
+* Nodemon
 
 ### Sources
 
