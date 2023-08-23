@@ -27,8 +27,6 @@ Nasa API
 
 OpenAI API
 * https://platform.openai.com/
-
-OpenAI npm:
 * https://www.npmjs.com/package/openai
 
 Curiosity photo:
