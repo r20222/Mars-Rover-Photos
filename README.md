@@ -10,11 +10,18 @@ What I have used:
 * JavaScript
 * HTML popover
 * NASA Mars Rover Photos API
+* OpenAI API
 
 ### Sources
 
 Nasa API
 * https://api.nasa.gov/
+
+OpenAI API
+* https://platform.openai.com/
+
+OpenAI npm:
+* https://www.npmjs.com/package/openai
 
 Curiosity photo:
 * https://mars.nasa.gov/system/feature_items/images/6037_msl_banner.jpg
