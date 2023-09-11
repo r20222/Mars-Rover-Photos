@@ -26,10 +26,6 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 
-
-
-
-
 // Maak routes met express naar de views & public 
 app.set('view engine', 'ejs')
 app.set('views', './views')
@@ -60,9 +56,12 @@ app.post('/', async (req, res) => {
   try {
     const userInput = req.body.userInputForm;
 
+    // Voeg de beperkingen toe aan het chatbericht
+    const chatMessageWithRestrictions = setChatGPTRestrictions(userInput);
+
     const chatCompletion1 = await openai.createChatCompletion({
       model: 'gpt-3.5-turbo',
-      messages: [{ role: "user", content: userInput }],
+      messages: [{ role: "user", content: chatMessageWithRestrictions }],
     });
 
     const generatedMessage = chatCompletion1.data.choices[0].message;
@@ -80,7 +79,10 @@ app.post('/', async (req, res) => {
   }
 });
 
-
+// Functie voor chatgpt beperkingen
+function setChatGPTRestrictions(question) {
+  return `Beperkingen: Alleen vragen over het heelal en Mars gerelateerde onderwerpen zullen worden beantwoord. Houd je antwoord beknopt en beperk het tot maximaal 250 woorden. Sluit elk antwoord af met een willekeurige emoji. Vraag: ${question}`;
+}
 
 // Maak een route voor de rover pagina
 app.get('/rover.ejs', (request, response) => {
