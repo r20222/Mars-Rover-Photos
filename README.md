@@ -4,7 +4,8 @@
 
 On this website you can find photos made on Mars by the Rovers: Curiosity, Opportunity and Spirit. When you click on one of the rovers, you can choose from which sol you want to see photos from made by that Rover. If you choose sol 50, you will see the photos made on the 50th day after the Rover's landing. On the index page you could ask all kinds of questions about Mars to Martian, who is an openai chatbot. Have fun exploring my hobbyproject! 😃
 
-![image](https://github.com/r20222/Mars-Rover-Photos/assets/101579892/8ed8c8ea-693d-402f-acf7-9e1c1c77771f)
+![image](https://github.com/r20222/Mars-Rover-Photos/assets/101579892/ebea6b2f-217f-4786-a6b7-dcc3b8cbb03c)
+
 
 
 ### Tools
