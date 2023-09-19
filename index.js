@@ -83,7 +83,7 @@ app.post('/', async (req, res) => {
 function setChatGPTRestrictions(question) {
   return `Restrictions: Only questions about the universe and Mars-related topics will be answered. 
   Keep your response concise, up to a maximum of 250 words. 
-  End each response with a random emoji. Answer the question in the same language it was asked. Question: ${question}`;
+  End each response with a random emoji. Answer in english. Question: ${question}`;
 }
 
 // Maak een route voor de rover pagina
