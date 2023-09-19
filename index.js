@@ -81,7 +81,9 @@ app.post('/', async (req, res) => {
 
 // Functie voor chatgpt beperkingen
 function setChatGPTRestrictions(question) {
-  return `Beperkingen: Alleen vragen over het heelal en Mars gerelateerde onderwerpen zullen worden beantwoord. Houd je antwoord beknopt en beperk het tot maximaal 250 woorden. Sluit elk antwoord af met een willekeurige emoji. Vraag: ${question}`;
+  return `Restrictions: Only questions about the universe and Mars-related topics will be answered. 
+  Keep your response concise, up to a maximum of 250 words. 
+  End each response with a random emoji. Answer the question in the same language it was asked. Question: ${question}`;
 }
 
 // Maak een route voor de rover pagina
