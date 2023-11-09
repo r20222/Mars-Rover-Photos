@@ -39,18 +39,18 @@ header{
     padding: .5rem 1rem;
 }
 .curiosity{
-    background:url('/curiosity.webp') no-repeat center center;
+    background:url('/curiosity-800.webp') no-repeat center center;
     background-size: cover;
 
 
 }
 .opportunity{
-    background:url('/opportunity.webp') no-repeat center top;
+    background:url('/opportunity-700.webp') no-repeat center top;
     background-size: cover;
 
 }
 .spirit{
-    background:url('/spirit.webp') no-repeat center top;
+    background:url('/spirit-700.webp') no-repeat center top;
     background-size: cover;
 
 
@@ -76,6 +76,7 @@ header{
     display:flex;
     justify-content: space-between;
     align-items: center;
+    /* margin-top:1rem; */
 }
 .ai-form input{
     height:2rem;
